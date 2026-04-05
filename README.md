@@ -28,15 +28,15 @@ This system allows a shop owner to:
 ## 🏗️ System Architecture
 
 User (Streamlit UI)
-      ↓
+      -->
 FastAPI Backend (Render)
-      ↓
+      -->
 LLM (Groq API)
-      ↓
+      -->
 SQL Generation & Validation
-      ↓
+      -->
 MySQL Database (Railway)
-      ↓
+      -->
 Results returned to UI
 
 ---
