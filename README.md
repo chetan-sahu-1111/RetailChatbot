@@ -74,20 +74,4 @@ Results returned to UI
 
 ---
 
-## 📁 Project Structure
-
-RetailChatbot/
-│
-├── app/
-│ ├── api/ # API routes
-│ ├── core/ # Config & logger
-│ ├── db/ # DB connection & execution
-│ ├── models/ # Request models
-│ ├── services/ # SQL generation, validation, LLM logic
-│ ├── utils/ # Helper functions
-│ └── main.py # FastAPI entry point
-│
-├── requirements.txt
-├── .env.example
-├── README.md
 
