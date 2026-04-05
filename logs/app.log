@@ -1,0 +1,34 @@
+2026-04-05 18:36:26,680 - INFO - User Query: Top selling products
+2026-04-05 18:36:27,498 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-05 18:36:27,514 - INFO - Generated SQL: ```sql
+SELECT p.name, SUM(oi.quantity) as total_sold
+FROM order_items oi
+JOIN products p ON oi.product_id = p.id
+GROUP BY p.name
+ORDER BY total_sold DESC;
+```
+2026-04-05 18:38:33,254 - INFO - User Query: Top selling products
+2026-04-05 18:38:34,065 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-05 18:38:34,084 - INFO - Generated SQL: ```sql
+SELECT p.name, SUM(oi.quantity) as total_sold
+FROM order_items oi
+JOIN products p ON oi.product_id = p.id
+GROUP BY p.name
+ORDER BY total_sold DESC;
+```
+2026-04-05 18:38:34,120 - WARNING - Empty result, retrying...
+2026-04-05 18:38:34,579 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-05 18:38:34,582 - ERROR - Error: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '```sql\nSELECT p.name, SUM(oi.quantity) as total_sold\nFROM order_items oi\nJOIN pr' at line 1")
+[SQL: ```sql
+SELECT p.name, SUM(oi.quantity) as total_sold
+FROM order_items oi
+JOIN products p ON oi.product_id = p.id
+GROUP BY p.name
+ORDER BY total_sold DESC;
+``` LIMIT 100;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-04-05 18:55:21,344 - INFO - User Query: Show customer names with their orders
+2026-04-05 18:55:21,985 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-05 18:55:22,006 - INFO - Generated SQL: SELECT c.name, o.id, o.date, o.total_amount
+FROM customers c
+JOIN orders o ON c.id = o.customer_id
