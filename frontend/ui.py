@@ -20,7 +20,7 @@ if user_input:
     with st.spinner("Thinking..."):
         try:
             response = requests.post(
-                "http://127.0.0.1:8000/chat",
+                "https://retailchatbot-p8pa.onrender.com/chat",
                 json={"query": user_input}
             )
 
